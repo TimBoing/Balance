@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_130841) do
+ActiveRecord::Schema.define(version: 2020_10_12_082807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "daily_meetings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "energy_p"
+    t.integer "energy_i"
+    t.integer "energy_e"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.bigint "daily_meeting_id"
+    t.bigint "pillar_id"
+    t.string "description"
+    t.boolean "completed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daily_meeting_id"], name: "index_objectives_on_daily_meeting_id"
+    t.index ["pillar_id"], name: "index_objectives_on_pillar_id"
+  end
+
+  create_table "pillars", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

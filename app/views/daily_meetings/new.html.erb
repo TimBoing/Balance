@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Ok! Commencons par un petit commentaire d´ouverture et les niveaux d´énergie</h1>
+  <%= simple_form_for @mamm do |f| %>
+    <%= f.input :start_time, as: :hidden, input_html: { value: @start_time } %>
+    <%= f.input :comments %>
+
+    <%= f.input :energy_p %>
+    <%= f.input :energy_i %>
+    <%= f.input :energy_e %>
+
+    <%= f.button :submit %>
+  <% end %>
+</div>

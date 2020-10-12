@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Nouvel Objectif!</h1>
+  <%= simple_form_for [@mamm, @objective] do |f| %>
+    <%= f.input :description %>
+
+    <%= f.input :pillar, collection: @pillars %>
+
+    <%= f.button :submit %>
+  <% end %>
+</div>
+

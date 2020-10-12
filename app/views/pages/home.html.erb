@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Bonjour Tim!</h1>
+  <p>La date d´aujourd´hui: <%= Time.now %></p>
+  <p>La météo prévue munich et bordeaux</p>
+  <p>Une petite citation philosophique : <%= @philosopher_quote %> </p>
+  <p>Possibilité de créer un nouveau MAMM si il n´y en a pas déjà à la date d´aujourd´hui</p>
+  <p>Si il y a déjà un MAMM on redirige vers le MAMM. show dans tous les cas</p>
+
+  <%= link_to "Lancer la session MAMM", new_daily_meeting_path %>
+
+  <p></p>
+
+</div>
+
